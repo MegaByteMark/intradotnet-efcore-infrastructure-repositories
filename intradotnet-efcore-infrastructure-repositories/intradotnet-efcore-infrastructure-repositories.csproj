@@ -13,9 +13,9 @@
     <Authors>MegaByteMark</Authors>
     <Description>A convenience library to remove repository pattern boilerplate.</Description>
     <PackageTags>EntityFrameworkCore;EFCore;Utilities;Helpers;ORM;DataAccess;Database;DotNet;CSharp</PackageTags>
-    <RepositoryUrl>https://github.com/MegaByteMark/intradotnet-entityframeworkcore-infrastructure-repositories</RepositoryUrl>
+    <RepositoryUrl>https://github.com/MegaByteMark/intradotnet-efcore-infrastructure-repositories</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/MegaByteMark/intradotnet-entityframeworkcore-infrastructure-repositories</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/MegaByteMark/intradotnet-efcore-infrastructure-repositories</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
