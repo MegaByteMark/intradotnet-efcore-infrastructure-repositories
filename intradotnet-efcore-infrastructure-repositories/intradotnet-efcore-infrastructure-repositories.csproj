@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <RootNamespace>IntraDotNet.EFCore.Infrastructure.Repositories</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>IntraDotNet.EFCore.Infrastructure.Repositories</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>MegaByteMark</Authors>
+    <Description>A convenience library to remove repository pattern boilerplate.</Description>
+    <PackageTags>EntityFrameworkCore;EFCore;Utilities;Helpers;ORM;DataAccess;Database;DotNet;CSharp</PackageTags>
+    <RepositoryUrl>https://github.com/MegaByteMark/intradotnet-entityframeworkcore-infrastructure-repositories</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/MegaByteMark/intradotnet-entityframeworkcore-infrastructure-repositories</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="IntraDotNet.Infrastructure.Core" Version="1.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.7" />
+  </ItemGroup>
+
+</Project>
