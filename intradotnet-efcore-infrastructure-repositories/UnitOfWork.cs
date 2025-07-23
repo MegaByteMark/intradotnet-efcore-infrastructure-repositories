@@ -1,8 +1,8 @@
 using System.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
-using Microsoft.EntityFrameworkCore.Storage;
 using System.ComponentModel.DataAnnotations;
+using IntraDotNet.Application.Core.Interfaces;
 
 namespace IntraDotNet.EntityFrameworkCore.Infrastructure.Repositories.UnitOfWork;
 
@@ -10,7 +10,7 @@ namespace IntraDotNet.EntityFrameworkCore.Infrastructure.Repositories.UnitOfWork
 /// Unit of Work implementation that manages database transactions and coordinates changes.
 /// </summary>
 /// <typeparam name="TDbContext">The type of the database context.</typeparam>
-public abstract class UnitOfWork<TDbContext> : IUnitOfWork<TDbContext>
+public abstract class UnitOfWork<TDbContext> : IUnitOfWork
     where TDbContext : DbContext
 {
     protected readonly IDbContextFactory<TDbContext> _contextFactory;
@@ -27,8 +27,6 @@ public abstract class UnitOfWork<TDbContext> : IUnitOfWork<TDbContext>
     /// Gets the database context. Created lazily and managed by the unit of work.
     /// </summary>
     protected TDbContext Context => _context ??= _contextFactory.CreateDbContext();
-
-    TDbContext IUnitOfWork<TDbContext>.Context => Context;
 
     /// <summary>
     /// Gets or creates a repository of the specified type.
@@ -85,7 +83,7 @@ public abstract class UnitOfWork<TDbContext> : IUnitOfWork<TDbContext>
     /// <exception cref="DbUpdateException">Thrown if there is an error starting the transaction.</exception>
     /// <exception cref="NotSupportedException">Thrown if the database provider does not support transactions.</exception>
     /// <exception cref="DBConcurrencyException">Thrown if the database is in a state that does not allow transactions.</exception>
-    public async ValueTask<IDbContextTransaction> BeginTransactionAsync(CancellationToken cancellationToken = default)
+    public async ValueTask<object> BeginTransactionAsync(CancellationToken cancellationToken = default)
     {
         return await Context.Database.BeginTransactionAsync(cancellationToken);
     }
@@ -98,7 +96,7 @@ public abstract class UnitOfWork<TDbContext> : IUnitOfWork<TDbContext>
     /// <exception cref="DbUpdateException">Thrown if there is an error starting the transaction.</exception>
     /// <exception cref="NotSupportedException">Thrown if the database provider does not support transactions.</exception>
     /// <exception cref="DBConcurrencyException">Thrown if the database is in a state that does not allow transactions.</exception>
-    public IDbContextTransaction BeginTransaction()
+    public object BeginTransaction()
     {
         return Context.Database.BeginTransaction();
     }

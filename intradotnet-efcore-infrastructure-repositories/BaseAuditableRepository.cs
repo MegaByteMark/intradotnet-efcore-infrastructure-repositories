@@ -1,7 +1,7 @@
 using System.Data;
 using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
-using IntraDotNet.Infrastructure.Core;
+using IntraDotNet.Domain.Core;
 
 namespace IntraDotNet.EntityFrameworkCore.Infrastructure.Repositories;
 
