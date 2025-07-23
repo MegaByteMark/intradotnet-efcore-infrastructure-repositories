@@ -21,7 +21,6 @@ dotnet add package IntraDotNet.EFCore.Infrastructure.Repositories
 ## Dependencies
 
 - Microsoft.EntityFrameworkCore 9.0.7+
-- IntraDot
 - IntraDotNet.Application.Core 1.0.1+
 - .NET 9.0
 
