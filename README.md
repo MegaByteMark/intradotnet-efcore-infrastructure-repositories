@@ -39,7 +39,7 @@ public class Product
 }
 ```
 
-For auditable entities, implement `IAuditable` from `IntraDotNet.Infrastructure.Core`:
+For auditable entities, implement `IAuditable` from `IntraDotNet.Domain.Core`:
 
 ```csharp
 public class AuditableProduct : IAuditable
@@ -188,7 +188,7 @@ public class OrderService
     
     public async Task ProcessOrderAsync(Order order)
     {
-        using var transaction = await _unitOfWork.BeginTransactionAsync();
+        using IDbContextTransaction transaction = (IDbContextTransaction)await _unitOfWork.BeginTransactionAsync();
         
         try
         {
@@ -253,41 +253,6 @@ public class AuditableProductService
     }
 }
 ```
-
-## Repository Interface
-
-The [`IBaseRepository<TEntity>`](intradotnet-efcore-infrastructure-repositories/IBaseRepository.cs) interface provides the following operations:
-
-### Query Operations
-- `GetQueryable()` - Get an IQueryable for custom queries
-- `GetAsync()` - Get a single entity by predicate
-- `GetAllAsync()` - Get all entities
-- `FindAsync()` - Find entities by predicate
-- `Get()`, `GetAll()`, `Find()` - Synchronous versions
-
-### Modification Operations
-- `AddOrUpdateAsync()` - Add new or update existing entity
-- `DeleteAsync()` - Delete entity (soft delete for auditable entities)
-- `AddOrUpdate()`, `Delete()` - Synchronous versions
-
-### Method Parameters
-- `withIncludes` - Include related entities (default: true)
-- `asNoTracking` - Use no-tracking queries for read-only operations (default: true)
-- `includeDeleted` - Include soft-deleted entities for auditable repositories (default: false)
-
-## Unit of Work Interface
-
-The [`IUnitOfWork<TDbContext>`](intradotnet-efcore-infrastructure-repositories/UnitOfWork/IUnitOfWork.cs) interface provides:
-
-### Transaction Management
-- `BeginTransactionAsync()` / `BeginTransaction()` - Start new transaction
-- `SaveChangesAsync()` / `SaveChanges()` - Save all pending changes
-- `SaveChangesAsync(handleConcurrencyConflict)` - Save with custom concurrency handling
-
-### Context Management
-- `Context` - Access to the underlying DbContext
-- `ResetAsync()` / `Reset()` - Reset and recreate the context
-- `DisposeAsync()` / `Dispose()` - Proper resource cleanup
 
 ## Advanced Features
 
