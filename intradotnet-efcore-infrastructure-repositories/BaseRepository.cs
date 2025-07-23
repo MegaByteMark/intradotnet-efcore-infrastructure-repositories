@@ -1,5 +1,6 @@
 using System.Data;
 using System.Linq.Expressions;
+using IntraDotNet.Application.Core.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace IntraDotNet.EntityFrameworkCore.Infrastructure.Repositories;

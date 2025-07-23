@@ -2,6 +2,7 @@ using System.Data;
 using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 using IntraDotNet.Domain.Core;
+using IntraDotNet.Application.Core.Interfaces;
 
 namespace IntraDotNet.EntityFrameworkCore.Infrastructure.Repositories;
 
