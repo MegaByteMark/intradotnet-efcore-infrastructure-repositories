@@ -9,7 +9,7 @@
 
   <PropertyGroup>
     <PackageId>IntraDotNet.EFCore.Infrastructure.Repositories</PackageId>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <Authors>MegaByteMark</Authors>
     <Description>A convenience library to remove repository pattern boilerplate.</Description>
     <PackageTags>EntityFrameworkCore;EFCore;Utilities;Helpers;ORM;DataAccess;Database;DotNet;CSharp;Infrastructure</PackageTags>

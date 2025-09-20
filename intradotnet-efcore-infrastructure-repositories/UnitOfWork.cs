@@ -34,7 +34,7 @@ public abstract class UnitOfWork<TDbContext> : IUnitOfWork
     /// </summary>
     /// <typeparam name="TRepository">The type of repository to get or create.</typeparam>
     /// <returns>The repository instance.</returns>
-    protected virtual TRepository GetRepository<TRepository>() where TRepository : class
+    public virtual TRepository GetRepository<TRepository>() where TRepository : class
     {
         Type type = typeof(TRepository);
 
