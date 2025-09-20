@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="IntraDotNet.Application.Core" Version="1.0.1" />
+    <PackageReference Include="IntraDotNet.Application.Core" Version="1.0.2" />
     <PackageReference Include="IntraDotNet.Domain.Core" Version="1.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.7" />
   </ItemGroup>
